@@ -1,9 +1,7 @@
 import { useState, useEffect } from "react";
 import { Box, Card } from "@mui/material";
-
-import "./style.scss";
-import { customFetch } from "../../service/fetch";
-import { AlertError } from "../../service/alerts";
+import { customFetch } from "../../services/fetch";
+import { AlertError } from "../../services/alerts";
 import AuthLogin from "../../components/auth/AuthLogin";
 
 export default function Login() {
@@ -14,7 +12,7 @@ export default function Login() {
   const getData = async () => {
     try {
       const resp = await customFetch({
-        endpoint: "api/login",
+        endpoint: "https://reqres.in/api/login",
         isLoader: false,
       });
       if (resp.success) {
